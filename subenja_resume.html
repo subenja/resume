@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Subenja Sowkietrung</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+<header>
+    <img src="subenja_photo.jpg" class="resume_photo" align="left">
+    <h1 class="fullname">Subenja Sowkietrung</h1>
+    <p>You can call me ... Toodtu.</p>
+
+</header>
+<section>
+    <nav>
+        <i class="material-icons" style="font-size:15px;color:red">mail_outline</i> <!--&#9993;-->subenja@gmail.com<br>
+        <i class="material-icons" style="font-size:15px;color:red">phonelink_ring</i><!--&#x2706;---> 703-909-9998<br>
+        <i class="material-icons" style="font-size:15px;color:red">location_on</i> Bangkok, Thailand<br>
+        <h2>SKILLS</h2>
+        <ul class="softskills">
+            <li>Management</li>
+            <li>Decision Making</li>
+            <li>Problem Solving</li>            
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Self-motivation</li>
+        </ul>
+        <h2>LANGUAGES</h2>
+        <ul class="softskills">
+            <li>English</li>
+            <li>Thai</li>
+        </ul>
+    </nav>
+    <article>
+        <h2>Computer Skills</h2>
+            <h3>Web Development&Programming</h3>
+            <ul class="reddiamond"><li>HTML5, CSS, Javascript, PHP</li></ul>
+            <h3>Collaboration Tools</h3>
+            <ul class="reddiamond"><li>Slack, Git, Dropbox </li></ul>
+            <h3>G suit</h3>
+            <ul class="reddiamond"><li>Google Drive, Docs, Sheets, Calendar, Gmail, and Forms</li></ul>            
+        <h2>EDUCATION</h2>
+            <h3>MBA in Information Technology</h3>
+            <h4>Strayer University, USA</h4>
+            <p class="timeline">2008-2009</p>
+            <h3>BSc in Computer Science</h3>
+            <h4>Srinakharinwirot University, Thailand</h4>
+            <p class="timeline">1995-1999</p>  
+    </article>
+</section>
+<!--- Style Sheet ---->
+<style>
+body {
+    background-color: whitesmoke;
+    font-family: monospace;
+    font-size: 1.25em;
+    color:"black";  
+} 
+h1.fullname {
+    font-size: 2em;
+    margin: 20px 0px 10px 0px; 
+}
+
+h2 {
+    font-size: 1.25em;
+    color:#ff3300;
+    text-decoration: underline;
+    margin: 20px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+}
+h3 {
+    font-weight: bolder;
+    color: black;
+    margin: 15px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;   
+}
+h4 {
+    font-weight:bold;
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px; 
+}
+p.timeline {
+    font-size:1em;
+    font-style:italic;    
+    margin: 5px 0px 5px 0px;     
+}
+ul.softskills {
+    list-style-type: none;
+    text-indent: 10px;    
+}
+ul.reddiamond {
+  list-style: none; /* Remove default bullets */
+  margin: 0px 0px 0px 0px; 
+}
+ul.reddiamond li::before {
+  content: "\25c7";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  padding-right: 1em;
+  color: #ff3300; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  text-indent: 10px;
+  list-style-position: inside;  
+}
+ul.contact {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+header {
+  background-color:#19334d;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.resume_photo {
+    display: inline-block;
+    border-color: orange;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%;  
+    width:150px;
+}
+</style>
+</body>
+</html>

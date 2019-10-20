@@ -4,32 +4,204 @@
 <title>Subenja Sowkietrung</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--- Style Sheet ---->
+<style>
+  #fullname {
+    font-size: 2em;
+    margin: 20px 0px 10px 0px; 
+  }
+  #softSkillList {
+    list-style-type: none;
+    text-indent: 10px;    
+  }
+  .resume_photo {
+      display: inline-block;
+      border-color: orange;
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 50%;  
+      width:15%;
+      max-width:150px;
+      min-width: 50px;
+      height:auto;    
+  }  
+  body {
+      background-color: whitesmoke;
+      font-family: monospace;
+      font-size: 1.25em;
+      color:"black";  
+  } 
+  h2 {
+    font-size: 1.25em;
+      color:#ff3300;
+      text-decoration: underline;
+      margin: 20px 0px 0px 0px; 
+      padding: 0px 0px 0px 0px;
+  }
+  h3 {
+      font-weight: bolder;
+      color: black;
+      margin: 15px 0px 0px 0px; 
+      padding: 0px 0px 0px 0px;   
+  }
+  h4 {
+      font-weight:bold;
+      margin: 0px 0px 0px 0px; 
+      padding: 0px 0px 0px 0px; 
+  }
+  ul.contact {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  ul.softskills {
+      list-style-type: none;
+      text-indent: 10px;   
+      visibility:hidden;       
+  }
+
+  ul.reddiamond {
+    list-style: none; /* Remove default bullets */
+    margin: 0px 0px 0px 0px; 
+  }
+  ul.reddiamond li::before {
+    content: "\25c7";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    padding-right: 1em;
+    color: #ff3300; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+    text-indent: 10px;
+    list-style-position: inside;  
+  }
+ 
+  p.timeline {
+      font-size:1em;  
+      font-style:italic;    
+      margin: 5px 0px 5px 0px;     
+  }
+
+  header {
+    background-color:#19334d;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+  }
+  footer {
+    background-color: #19334d;
+    font-size: 1em;
+    color:#ccc;
+    padding: 7px;
+    margin-top: 7px;
+    text-align: right;
+  }
+  /* Container for flexboxes */
+  section {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Style the navigation menu */
+  nav {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #ccc;
+    padding: 20px;
+  }
+  
+  /* Style the list inside the menu  */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Style the content  */
+  article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
+  }
+
+  
+  
+  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  
+  @media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    nav, section {
+      width:100%;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- script src="http://static.jsbin.com/js/render/edit.js?4.1.7"></script --->
+  <script>
+
+    function addNewSoftSkill(newItem) {
+      $(document).ready(function(){
+            $("#softSkillList").append('<li>'+newItem+'</li>');
+      });
+    }
+
+
+    function saveNewName() {
+      let editElem = document.getElementById("fullname");
+      let userVersion = editElem.innerHTML;
+      localStorage.userVersion = userVersion;
+      document.getElementById("update").innerHTML = "Saved!";
+    }
+    function checkEdits() {
+      if (localStorage.userVersion!=null) {
+        document.getElementById("fullname").innerHTML = localStorage.userVersion;
+      }
+    }
+    function changeBGColor(color) {
+      document.body.style.backgroundColor = color;  
+    }
+  </script>
 </head>
-<body>
-
+<body onload="checkEdits()">
 <header>
-    <img src="subenja_photo.jpg" class="resume_photo" align="left">
-    <h1 class="fullname">Subenja Sowkietrung</h1>
+    <img src="subenja_photo.jpg" class="resume_photo" align="left"> 
+    <h1 id="fullname" contenteditable="true">Subenja Sowkietrung</h1>
     <p>You can call me ... Toodtu.</p>
-</header>
+    <p style="text-align: right;"><input type="button" value="Save my name" onclick="saveNewName()"/></p>
 
+</header>
 <section>
 
     <nav>
+        <!--- Contact Information-->
         <i class="material-icons" style="font-size:15px;color:red">mail_outline</i> <!--&#9993;-->subenja@gmail.com<br>
         <i class="material-icons" style="font-size:15px;color:red">phonelink_ring</i><!--&#x2706;---> 703-909-9998<br>
         <i class="material-icons" style="font-size:15px;color:red">location_on</i> Bangkok, Thailand<br>
+
+        <!--- Soft Skill List-->
         <h2>SKILLS</h2>
-        <ul class="softskills">
-            <li>Management</li>
-            <li>Decision Making</li>
-            <li>Problem Solving</li>            
-            <li>Teamwork</li>
-            <li>Communication</li>
-            <li>Self-motivation</li>
-        </ul>
+            <ul id="softSkillList">
+                <li>Management</li>
+                <li>Decision Making</li>
+                <li>Problem Solving</li>            
+                <li>Teamwork</li>
+                <li>Communication</li>
+                <li>Self-motivation</li>            
+            </ul>
+                <input type="text" id="newSoftSkill" style="border:2px dotted #F7730E;">
+                <button onclick="addNewSoftSkill($('#newSoftSkill').val())">Add</button>    
         <h2>LANGUAGES</h2>
-        <ul class="softskills">
+        <ul style="text-indent: 10px;">
             <li>English</li>
             <li>Thai</li>
         </ul>
@@ -53,142 +225,11 @@
 
 
 </section>
-<footer>Last updated October 19, 2019</footer>
+<footer>Change Background Color 
+  <span style="background-color: green;" onmouseover="changeBGColor('green')">&nbsp;&nbsp;</span>
+  <span style="background-color: red;" onmouseover="changeBGColor('red')">&nbsp;&nbsp;</span>
+  <span style="background-color: blue;" onmouseover="changeBGColor('blue')">&nbsp;&nbsp;</span>
+  <span style="background-color: white;" onmouseover="changeBGColor('white')">&nbsp;&nbsp;</span>
 
-<!--- Style Sheet ---->
-<style>
-body {
-    background-color: whitesmoke;
-    font-family: monospace;
-    font-size: 1.25em;
-    color:"black";  
-} 
-h1.fullname {
-  font-size: 2em;
-    margin: 20px 0px 10px 0px; 
-}
-
-h2 {
-  font-size: 1.25em;
-    color:#ff3300;
-    text-decoration: underline;
-    margin: 20px 0px 0px 0px; 
-    padding: 0px 0px 0px 0px;
-}
-h3 {
-    font-weight: bolder;
-    color: black;
-    margin: 15px 0px 0px 0px; 
-    padding: 0px 0px 0px 0px;   
-}
-h4 {
-    font-weight:bold;
-    margin: 0px 0px 0px 0px; 
-    padding: 0px 0px 0px 0px; 
-}
-p.timeline {
-    font-size:1em;  
-    font-style:italic;    
-    margin: 5px 0px 5px 0px;     
-}
-ul.softskills {
-    list-style-type: none;
-    text-indent: 10px;    
-}
-ul.reddiamond {
-  list-style: none; /* Remove default bullets */
-  margin: 0px 0px 0px 0px; 
-}
-ul.reddiamond li::before {
-  content: "\25c7";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  padding-right: 1em;
-  color: #ff3300; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-  text-indent: 10px;
-  list-style-position: inside;  
-}
-ul.contact {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-header {
-  background-color:#19334d;
-  padding: 20px;
-  text-align: center;
-  font-size: 25px;
-  color: white;
-}
-footer {
-  background-color: #19334d;
-  font-size: 0.5em;
-  color:#6e6e6e;
-  padding: 7px;
-  margin-top: 7px;
-  text-align: right;
-}
-/* Container for flexboxes */
-section {
-  display: -webkit-flex;
-  display: flex;
-}
-
-/* Style the navigation menu */
-nav {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu  */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Style the content  */
-article {
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  background-color: #f1f1f1;
-  padding: 10px;
-}
-
-.resume_photo {
-    display: inline-block;
-    border-color: orange;
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 50%;  
-    width:15%;
-    max-width:150px;
-    min-width: 50px;
-    height:auto;    
-}
-
-
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  section {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  nav, section {
-    width:100%;
-  }
-  
-</style>
 </body>
 </html>
